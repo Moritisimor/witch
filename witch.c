@@ -3,7 +3,8 @@
 #include <string.h>
 #define CHUNK_SIZE 8
 
-void print_byte_array_hex(uint8_t *byte_array, size_t size) {
+void print_byte_array_hex(uint8_t *byte_array, size_t size, size_t offset) {
+    printf("0x%010zx: ", offset);
     for (size_t i = 0; i < size; i++) 
         printf("0x%02x ", byte_array[i]);
 
@@ -37,9 +38,12 @@ int main(int argc, char **argv) {
 
     uint8_t buf[CHUNK_SIZE];
     size_t bytes_read = 0;
+    size_t current_offset = 0;
 
-    while ((bytes_read = fread(buf, 1, CHUNK_SIZE, f)) > 0) 
-        print_byte_array_hex(buf, bytes_read);
+    while ((bytes_read = fread(buf, 1, CHUNK_SIZE, f)) > 0) {
+        print_byte_array_hex(buf, bytes_read, current_offset);
+        current_offset += CHUNK_SIZE;
+    }
 
     fclose(f);
     return 0;
