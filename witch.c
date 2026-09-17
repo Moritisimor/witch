@@ -76,7 +76,7 @@ int main(int argc, char **argv)
         {
             printf("Usage: witch <flags...> <file>\n");
             printf("Flags:\n");
-            printf("\t-x | --hex\tPrints bytes and offsets as hexadecimal numbers\n");
+            printf("\t-x | --hex\tPrints bytes and offsets as hexadecimal numbers (Default)\n");
             printf("\t-b | --binary\tPrints bytes and offsets as binary numbers\n");
             printf("\t-d | --decimal\tPrints bytes and offsets as decimal numbers\n");
             printf("\t-h | --help\tPrints this\n");
