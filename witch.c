@@ -41,5 +41,6 @@ int main(int argc, char **argv) {
     while ((bytes_read = fread(buf, 1, CHUNK_SIZE, f)) > 0) 
         print_byte_array_hex(buf, bytes_read);
 
+    fclose(f);
     return 0;
 }
